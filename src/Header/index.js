@@ -16,7 +16,7 @@ export default class Header extends Component {
 
   render() {
     return (
-      <section className="header centered">
+      <section className="header">
         <h1
           onMouseEnter={this.changeName.bind(this)}
           onMouseLeave={this.changeName.bind(this)}
@@ -24,7 +24,7 @@ export default class Header extends Component {
         >
           {this.state.name}
         </h1>
-        <h2 className=""><span>{this.state.tagline}</span></h2>
+        <h2 className="tagline"><span>{this.state.tagline}</span></h2>
         <SocialIcons />
       </section>
     );
@@ -36,28 +36,27 @@ class SocialIcons extends Component {
     let myInfo = [
       {
         title: "github",
-        link: "link to github",
-        faicons: " fa-github fa-fw fa-3"
+        link: "",
+        faicons: "fa-github"
       },
       {
         title: "facebook",
-        link: "link to facebook",
-        faicons: " fa-facebook fa-fw fa-3"
+        link: "",
+        faicons: "fa-facebook"
       },
       {
         title: "email",
-        link: "mailto:zrlevine@gmail.com",
-        faicons: " fa-envelope fa-fw fa-3"
+        link: "mailto:z@zrl.io",
+        faicons: "fa-envelope"
       },
       {
         title: "twitter",
-        link: "link to twitter",
-        faicons: " fa-twitter fa-fw fa-3"
+        link: "",
+        faicons: "fa-twitter"
       }
     ];
 
     var socialList = myInfo.map(function(social, i) {
-      console.log(i);
       return <SI key={i} info={social} />;
     });
 
@@ -72,9 +71,9 @@ class SocialIcons extends Component {
 class SI extends Component {
   render() {
     let { title, link, faicons } = this.props.info;
-    faicons = "icon fa" + faicons;
+    faicons = "fa fa-2x fa-fw " + faicons;
     return (
-      <li title={title} className="await-opacity-5">
+      <li title={title} className="">
         <a href={link} target="_blank">
           <span className={faicons} />
         </a>

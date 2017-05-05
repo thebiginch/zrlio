@@ -1,0 +1,17 @@
+.projects {
+    background-color: #191536;
+    color: #C2C2C2;
+    a.button {
+        display: block;
+        margin-bottom: 20px;
+        height: 50px;
+        display: flex;
+        p {
+            margin: auto;
+        }
+        border-radius: 0;
+    }
+    padding-top: 100px;
+    padding-left: 50px;
+    min-height: 500px;
+}
