@@ -2,11 +2,29 @@ import React, { Component } from "react";
 import "./Header.css";
 
 export default class Header extends Component {
+  constructor() {
+    super();
+    this.state = { name: "Zachary Levine", tagline: "Coding Stuff" };
+  }
+
+  changeName() {
+    let name = this.state.name === "Zachary Levine"
+      ? "Zachary Le🍕ine"
+      : "Zachary Levine";
+    this.setState({ name });
+  }
+
   render() {
     return (
       <section className="header centered">
-        <h1 class="name">Zachary Levine</h1>
-        <h2 className=""><span>Coding stuff</span></h2>
+        <h1
+          onMouseEnter={this.changeName.bind(this)}
+          onMouseLeave={this.changeName.bind(this)}
+          className="name"
+        >
+          {this.state.name}
+        </h1>
+        <h2 className=""><span>{this.state.tagline}</span></h2>
         <SocialIcons />
       </section>
     );
