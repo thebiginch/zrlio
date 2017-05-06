@@ -8,11 +8,17 @@ export default class Contact extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleReset = this.handleReset.bind(this);
   }
 
   handleChange(event) {
     let name = event.target.name;
     this.setState({ [name]: event.target.value });
+  }
+
+  handleReset(event) {
+    this.state = {};
+    this.forceUpdate();
   }
 
   handleSubmit(event) {
@@ -84,17 +90,26 @@ export default class Contact extends Component {
                     id="contactMessage"
                     className="span4"
                     name="contactMessage"
+                    defaultValue=""
                     value={this.state.contactMessage}
                     onChange={this.handleChange}
                   />
                 </div>
 
-                <button type="submit" className="button submit">
+                <button
+                  type="submit"
+                  className="button submit"
+                  onClick={this.handleSubmit}
+                >
                   <span className="icon fa fa-check-circle fa-lg fa-fw" />
                   Send
                 </button>
 
-                <button type="reset" className="button reset">
+                <button
+                  type="reset"
+                  className="button reset"
+                  onClick={this.handleReset}
+                >
                   <span className="icon fa fa-times-circle fa-lg fa-fw" />
                   Cancel
                 </button>
