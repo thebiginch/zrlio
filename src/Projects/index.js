@@ -11,13 +11,13 @@ export default class Header extends Component {
                 I like to code.
                 <span className="icon fa fa-desktop" />
               </h2>
-              <a className="button" href="">
+              <a className="button column column-100" href="">
                 <p>
                   <span className="icon fa fa-github fa-lg fa-fw" />
                   My GitHub
                 </p>
               </a>
-              <a className="button" href="">
+              <a className="button column column-100" href="">
                 <p>
                   <span className="icon fa fa-flask fa-lg fa-fw" />
                   My projects
