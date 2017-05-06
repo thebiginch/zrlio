@@ -2,6 +2,24 @@ import React, { Component } from "react";
 import "./Contact.css";
 
 export default class Contact extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    let name = event.target.name;
+    this.setState({ [name]: event.target.value });
+  }
+
+  handleSubmit(event) {
+    alert("form" + this.state);
+    event.preventDefault();
+  }
+
   render() {
     return (
       <section className="contact">
@@ -22,6 +40,8 @@ export default class Contact extends Component {
                     type="text"
                     name="contactName"
                     required="required"
+                    value={this.state.contactName}
+                    onChange={this.handleChange}
                   />
                 </div>
 
@@ -35,6 +55,8 @@ export default class Contact extends Component {
                     type="text"
                     name="contactEmail"
                     required="required"
+                    value={this.state.contactEmail}
+                    onChange={this.handleChange}
                   />
                 </div>
 
@@ -48,6 +70,8 @@ export default class Contact extends Component {
                     type="text"
                     name="contactSubject"
                     required="required"
+                    value={this.state.contactSubject}
+                    onChange={this.handleChange}
                   />
                 </div>
 
@@ -60,6 +84,8 @@ export default class Contact extends Component {
                     id="contactMessage"
                     className="span4"
                     name="contactMessage"
+                    value={this.state.contactMessage}
+                    onChange={this.handleChange}
                   />
                 </div>
 
