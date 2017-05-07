@@ -16,14 +16,32 @@ export default class Contact extends Component {
     this.setState({ [name]: event.target.value });
   }
 
-  handleReset(event) {
+  handleReset() {
+    console.log("ran!");
     this.state = {};
     this.forceUpdate();
   }
 
   handleSubmit(event) {
-    alert("form" + this.state);
     event.preventDefault();
+
+    self = this;
+    let form = JSON.stringify(this.state);
+
+    let myHeaders = new Headers({
+      "Content-Type": "application/json"
+    });
+
+    fetch("/mail", {
+      method: "POST",
+      body: form,
+      headers: myHeaders
+    }).then(res => {
+      this.handleReset();
+      this.forceUpdate();
+
+      console.log(res);
+    });
   }
 
   render() {

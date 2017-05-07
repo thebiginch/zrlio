@@ -9,7 +9,7 @@ export default class About extends Component {
           <div className="row">
 
             <div className="column column-100">
-              About
+              <img src="/zrl.png" />
             </div>
           </div>
         </div>
