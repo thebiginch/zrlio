@@ -1,8 +1,14 @@
 .contact {
     background-color: #CC371F;
-    height: 500px;
+    color: #333;
     input,
     textarea {
-        background-color: #eee;
+        background-color: #ccc;
+        resize: none;
+    }
+    @media (min-width: 600px) {
+        form {
+            width: 50%;
+        }
     }
 }
