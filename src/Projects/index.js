@@ -1,6 +1,9 @@
 import React, { Component } from "react";
+import Tech from "../Tech";
+
 import "./Projects.css";
-export default class Header extends Component {
+
+export default class Projects extends Component {
   render() {
     return (
       <section className="projects">
@@ -8,25 +11,14 @@ export default class Header extends Component {
           <div className="row">
             <div className="column column-40">
               <h2>
-                I like to code.
-                <span className="icon fa fa-desktop" />
+                Favorite Tools
+                <span className="icon fa fa-cog" />
               </h2>
-              <a className="button column column-100" href="">
-                <p>
-                  <span className="icon fa fa-github fa-lg fa-fw" />
-                  My GitHub
-                </p>
-              </a>
-              <a className="button column column-100" href="">
-                <p>
-                  <span className="icon fa fa-flask fa-lg fa-fw" />
-                  My projects
-                </p>
-              </a>
+              <Tech />
             </div>
             <div className="column column-10" />
             <div className="column column-50">
-              <h3>Last projects</h3>
+              <h3>Latest projects</h3>
               <ul className="last" />
             </div>
           </div>
