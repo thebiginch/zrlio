@@ -1,4 +1,11 @@
 .about {
     background-color: #FFF;
     min-height: 500px;
+    .picture {
+        img {
+            float: left;
+            width: 250px;
+            height: 250px;
+        }
+    }
 }

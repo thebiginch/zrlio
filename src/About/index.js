@@ -5,14 +5,17 @@ export default class About extends Component {
   render() {
     return (
       <section className="about">
-        <div className="container">
-          <div className="row">
 
-            <div className="column column-100">
-              <img src="/zrl.png" />
-            </div>
-          </div>
+        <img className="picture" src="zrl.png" />
+        <div className="blurb">
+          <h2> About me</h2>
+          <hr />
+          <p>
+            Hi. My name is Zachary Levine.  I'm a full stack web developer.  I love programming because it challenges the mind to think and solve problems in a logical way.
+            I also like riding my bike, learning new things, and dogs.
+          </p>
         </div>
+
       </section>
     );
   }
