@@ -15,15 +15,20 @@ export default class Header extends Component {
   }
 
   render() {
+    let firstName = this.state.name.split(" ")[0];
+    let lastName = this.state.name.split(" ")[1];
     return (
       <section className="header">
-        <h1
+        <div
           onMouseEnter={this.changeName.bind(this)}
           onMouseLeave={this.changeName.bind(this)}
           className="name"
         >
-          {this.state.name}
-        </h1>
+          <h1>
+            {firstName}
+          </h1>
+          <h1>{lastName}</h1>
+        </div>
         <h2 className="tagline"><span>{this.state.tagline}</span></h2>
         <SocialIcons />
       </section>
