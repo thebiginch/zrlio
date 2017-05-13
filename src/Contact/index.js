@@ -50,7 +50,7 @@ export default class Contact extends Component {
         <div className="container">
 
           <div className="row">
-            <div className="column column-100">
+            <div className="col-xs-12 col-sm-offset-3 col-sm-6">
               <form id="contactForm" className="form-horizontal">
                 <h2>Contact form</h2>
 
