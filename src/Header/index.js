@@ -4,7 +4,7 @@ import "./Header.css";
 export default class Header extends Component {
   constructor() {
     super();
-    this.state = { name: "Zachary Levine", tagline: "Coding Stuff" };
+    this.state = { name: "Zachary Levine", tagline: "Software Developer" };
   }
 
   changeName() {
@@ -41,23 +41,23 @@ class SocialIcons extends Component {
     let myInfo = [
       {
         title: "github",
-        link: "",
+        link: "https://github.com/thebiginch",
         faicons: "fa-github"
       },
       {
-        title: "facebook",
-        link: "",
-        faicons: "fa-facebook"
-      },
-      {
-        title: "email",
-        link: "mailto:z@zrl.io",
-        faicons: "fa-envelope"
+        title: "linkedin",
+        link: "https://www.linkedin.com/in/zrlevine/",
+        faicons: "fa-linkedin"
       },
       {
         title: "twitter",
         link: "",
         faicons: "fa-twitter"
+      },
+      {
+        title: "email",
+        link: "mailto:z@zrl.io",
+        faicons: "fa-envelope"
       }
     ];
 
@@ -78,7 +78,7 @@ class SI extends Component {
     let { title, link, faicons } = this.props.info;
     faicons = "fa fa-2x fa-fw " + faicons;
     return (
-      <li title={title} className="">
+      <li title={title} className="social">
         <a href={link} target="_blank">
           <span className={faicons} />
         </a>
