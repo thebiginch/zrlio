@@ -17,17 +17,15 @@ export default class Contact extends Component {
   }
 
   handleReset() {
-    console.log("ran!");
-    this.state = {};
-    this.forceUpdate();
+    for (let prop in this.state) {
+      this.setState({ [prop]: "" });
+    }
   }
 
   handleSubmit(event) {
     event.preventDefault();
 
-    self = this;
     let form = JSON.stringify(this.state);
-
     let myHeaders = new Headers({
       "Content-Type": "application/json"
     });
@@ -36,28 +34,44 @@ export default class Contact extends Component {
       method: "POST",
       body: form,
       headers: myHeaders
-    }).then(res => {
-      this.handleReset();
-      this.forceUpdate();
-
-      console.log(res);
-    });
+    })
+      .then(res => {
+        this.handleReset();
+      })
+      .catch(err => {
+        console.error(err);
+      });
   }
 
   render() {
+    let linktoresume = "/resume.pdf";
+
     return (
       <section className="contact">
         <div className="container">
-
+          <h2>Get in touch!</h2>
+          <hr />
           <div className="row">
-            <div className="col-xs-12 col-sm-offset-3 col-sm-6">
-              <form id="contactForm" className="form-horizontal">
-                <h2>Contact form</h2>
 
+            <div className="col-xs-12 col-sm-6">
+
+              <p>
+                Would love to chat about how I can help on your next project.  Feel free to drop me a message or download my
+                {" "}
+                <span className="resume-link">
+                  <a href={linktoresume}>RESUME</a>
+                </span>
+                {" "}
+              </p>
+              <p>Thanks for visiting. 🍕</p>
+
+            </div>
+
+            <div className="col-xs-12  col-sm-6">
+              <form id="contactForm" className="form-horizontal">
                 <div className="control-group contactName">
                   <label className="control-label" for="contactName">
                     Name
-                    <span className="required">*</span>
                   </label>
                   <input
                     id="contactName"
@@ -72,7 +86,6 @@ export default class Contact extends Component {
                 <div className="control-group contactEmail">
                   <label className="control-label" for="contactEmail">
                     Email
-                    <span className="required">*</span>
                   </label>
                   <input
                     id="contactEmail"
@@ -87,7 +100,6 @@ export default class Contact extends Component {
                 <div className="control-group contactSubject">
                   <label className="control-label" for="contactSubject">
                     Subject
-                    <span className="required">*</span>
                   </label>
                   <input
                     id="contactSubject"
@@ -102,7 +114,6 @@ export default class Contact extends Component {
                 <div className="control-group contactMessage">
                   <label className="control-label" for="contactMessage">
                     Message
-                    <span className="required">*</span>
                   </label>
                   <textarea
                     id="contactMessage"
